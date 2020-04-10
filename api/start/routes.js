@@ -16,5 +16,4 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/user', 'UserController.list');
-Route.post('/user', 'UserController.create');
+Route.get('/funcao', 'FuncaoController.list');
