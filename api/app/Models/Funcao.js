@@ -4,10 +4,6 @@
 const Model = use('Model')
 
 class Funcao extends Model {
-
-
-
-
     static get primaryKey () {
         return 'ID_FUNCAO'
     }
