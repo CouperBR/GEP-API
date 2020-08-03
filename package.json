@@ -26,8 +26,8 @@
     "@adonisjs/lucid": "^8.2.2",
     "knex": ">=0.19.5",
     "minimist": ">=1.2.3",
-    "mssql": "^4.1.0",
-    "set-value": ">=2.0.1"
+    "set-value": ">=2.0.1",
+    "mssql": "^4.1.0"
   },
   "devDependencies": {},
   "autoload": {
