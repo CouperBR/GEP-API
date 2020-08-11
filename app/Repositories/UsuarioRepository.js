@@ -1,9 +1,15 @@
 'use strict'
 
+// const Aluno = use('App/Models/Aluno')
+
 class UsuarioRepository{
 
+    constructor(Aluno){
+        this._Aluno = Aluno;
+    }
     async get(id){
-        return id;
+        return await this._Aluno.all();
+        // return id;
     }
 }
 

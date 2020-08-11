@@ -19,3 +19,7 @@ const Route = use('Route')
 // Route.get('/funcao', 'FuncaoController.get');
 // Route.get('/funcao/:id', 'FuncaoController.getById');
 Route.get('/', 'UsuarioController.get');
+
+Route.group(() => {
+    Route.get('/:id', 'SerieController.get')   // GET /api/v1/serie/5
+}).prefix('/api/v1/serie')

@@ -6,7 +6,7 @@ class UsuarioController {
 
     
     async get({ params, request, response }){
-        return _usuarioService.get(6);
+        return _usuarioService.get(100);
     }
 
     async getById({ request, response }){
