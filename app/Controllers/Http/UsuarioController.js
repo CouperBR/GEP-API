@@ -1,8 +1,12 @@
 'use strict'
 
-class UsuarioController {
-    async get({ params, request, response }){
+const _usuarioService = use('Adonis/Services/UsuarioService')
 
+class UsuarioController {
+
+    
+    async get({ params, request, response }){
+        return _usuarioService.get(6);
     }
 
     async getById({ request, response }){
