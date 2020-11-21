@@ -1,6 +1,11 @@
 'use strict'
 
 const { LogicalException } = require('@adonisjs/generic-exceptions')
+const { format } = require('winston');
+const { combine, timestamp, prettyPrint, colorize, printf, splat, align } = format;
+const myFormat = printf(({ level, message, timestamp }) => {
+  return `${timestamp} ${level}: ${message}`;
+});
 let message = 'Ocorreu um erro ao processar essa solicitação.'
 let status = 400
 let code = 'BAD_REQUEST'
@@ -20,6 +25,10 @@ class ApplicationException extends LogicalException {
   }
 
   handle (error, { response }) {
+    const Logger = use('Logger')
+    Logger
+      .transport('file')
+      .error(message, error)
     response
       .status(status)
       .send(message)

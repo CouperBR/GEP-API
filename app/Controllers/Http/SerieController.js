@@ -8,10 +8,11 @@ class SerieController {
     async get ({params, request, response}) {
         try {
             const { id } = params;
+            throw new Error();
             return _serieService.get(id);
         }
         catch (ex) {
-            throw new ApplicationException(ex.message, 404)
+            throw new ApplicationException()
         }
     }
 

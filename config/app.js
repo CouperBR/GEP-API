@@ -3,6 +3,13 @@
 /** @type {import('@adonisjs/framework/src/Env')} */
 const Env = use('Env')
 
+/*Logger*/
+const { format } = require('winston');
+const { combine, timestamp, prettyPrint, printf, splat, align } = format;
+const myFormat = printf(({ level, message, timestamp }) => {
+  return `${timestamp} ${level}: ${message}`;
+});
+
 module.exports = {
 
   /*
@@ -221,6 +228,18 @@ module.exports = {
       name: 'adonis-app',
       filename: 'adonis.log',
       level: 'info'
+    },
+    file: {
+      driver: 'file',
+      name: 'adonis-app',
+      filename: 'adonis.log',
+      level: 'error',
+      format: combine(
+        align(),
+        splat(),
+        timestamp(),
+        prettyPrint()
+      )
     }
   },
 
